@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: feeder-service
+  namespace: serai-dev
+  labels:
+    app: feeder-service
+spec:
+  replicas: 1
+  minReadySeconds: 30
+  selector:
+    matchLabels:
+      app: feeder-service
+  template:
+    metadata:
+      labels:
+        app: feeder-service
+    spec:
+      containers:
+        - name: feeder-service
+          image: docker.io/kevinlwh/feeder-service:latest
+          ports:
+            - containerPort: 8081
+          resources:
+            requests:
+              memory: "500Mi"
+              cpu: "500m"
+            limits:
+              memory: "500Mi"
+              cpu: "800m"
+          env:
+            - name: JVM_OPTS
+              value: "-Xms250m -Xmm450m"
+            - name: SPRING_PROFILES_ACTIVE
+              value: "kube"
+            - name: SECRET_CUSTOMIZE_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: secret-custimize-token
+                  key: token

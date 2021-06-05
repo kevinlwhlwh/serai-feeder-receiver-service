@@ -1,0 +1,3 @@
+serai:
+  receiver:
+    url: http://receiver-service.serai-dev/
