@@ -1,4 +1,4 @@
-package com.kevinlam.serai.sender.Service;
+package com.kevinlam.serai.sender.service;
 
 import com.kevinlam.serai.sender.client.ReceiverClient;
 import com.kevinlam.serai.sender.config.UnexpectedDataInputDataException;

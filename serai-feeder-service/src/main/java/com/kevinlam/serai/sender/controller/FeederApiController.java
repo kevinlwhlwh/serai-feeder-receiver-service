@@ -1,6 +1,6 @@
 package com.kevinlam.serai.sender.controller;
 
-import com.kevinlam.serai.sender.Service.FeederService;
+import com.kevinlam.serai.sender.service.FeederService;
 import com.kevinlam.serai.sender.model.Feeder;
 import com.kevinlam.serai.sender.model.Receiver;
 import org.slf4j.Logger;
